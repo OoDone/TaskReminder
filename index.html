@@ -1,16 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>ssGetting Started with ml5.js</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
-  </head>
-
-  <body>
-    <script>
-      // Your code will go here
-      // open up your console - if everything loaded properly you should see the correct version number
-      alert('ml5 version:', ml5.version);
-    </script>
-  </body>
+<html>
+<head>
+<title>minimal demo</title>
+ 
+<!-- CSS goes here -->
+<style>
+body {
+  background-color: #FFF; /* example... */
+}
+</style>
+ 
+<!-- import convnetjs library -->
+<script src="convnet-min.js"></script>
+ 
+<!-- javascript goes here -->
+<script type="text/javascript">
+ 
+function periodic() {
+  var d = document.getElementById('egdiv');
+  d.innerHTML = 'Random number: ' + Math.random()
+}
+ 
+var net; // declared outside -> global variable in window scope
+function start() {
+  // this gets executed on startup
+  //... 
+  net = new convnetjs.Net();
+  // ...
+ 
+  // example of running something every 1 second
+  setInterval(periodic, 1000);
+}
+ 
+</script>
+</head>
+ 
+<body onload="start()">
+<div id="egdiv"></div>
+</body>
 </html>
