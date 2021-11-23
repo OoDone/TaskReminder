@@ -30,9 +30,9 @@ client.on('message', async function(msg) {
     }
   }
 });
-function question1() {
-  if (answer != null) {
-    return;
+async function question1() {
+  while (answer = null) {
+    await new Promise(resolve => setTimeout(resolve, 1000));
   }
 }
 
