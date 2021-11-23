@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+//https://stackoverflow.com/questions/45856446/how-do-i-wait-for-a-reply-in-discord-js
 /*task name:
 description/details:
 when needed(due date):
