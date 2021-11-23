@@ -69,4 +69,4 @@ client.on('message', async function(msg) {
     })
   }
 });
-
+client.login('bot token');
