@@ -18,21 +18,55 @@ client.on('message', async function(msg) {
     msg.channel.send("Msg: " + task);
   }
   if (msg.content.startsWith('?sendtask2')) {
-    msg.channel.send("What is the task name?");
-    quiz = true;
-    //await answer != null;
-    await question1();
-    msg.channel.send("Answer: " + answer);
-  }
-  if (quiz == true) {
-    if (!msg.content.startsWith('?sendtask')) {
-      answer = msg.content;
-    }
+    var task;
+    let filter = m => m.author.id === msg.author.id; //; wasnt there originally
+    msg.channel.send(`What is the task name?`).then(() => {
+      msg.channel.awaitMessages(filter, {
+          max: 1,
+          time: 30000,
+          errors: ['time']
+        })
+        .then(msg => {
+          msg = msg.first()
+        msg.channel.send("Response1: " + msg.content);
+        task = msg.content;
+        })
+        .catch(collected => {
+            msg.channel.send('Timeout');
+        });
+    })
+     //let filter2 = m => m.author.id === msg.author.id; //; wasnt there originally. Line possibly needed
+    msg.channel.send(`What are the details for this task?`).then(() => {
+      msg.channel.awaitMessages(filter, {
+          max: 1,
+          time: 30000,
+          errors: ['time']
+        })
+        .then(msg => {
+          msg = msg.first()
+        msg.channel.send("Response2: " + msg.content);
+        task += ":" + msg.content;
+        })
+        .catch(collected => {
+            msg.channel.send('Timeout');
+        });
+    })
+    //let filter3 = m => m.author.id === msg.author.id; //; wasnt there originally. Line possibly needed
+    msg.channel.send(`When does this task need to be done?`).then(() => {
+      msg.channel.awaitMessages(filter, {
+          max: 1,
+          time: 30000,
+          errors: ['time']
+        })
+        .then(msg => {
+          msg = msg.first()
+        msg.channel.send("Response3: " + msg.content);
+        task += ":" + msg.content;
+        })
+        .catch(collected => {
+            msg.channel.send('Timeout');
+        });
+    })
   }
 });
-async function question1() {
-  while (answer = null) {
-    await new Promise(resolve => setTimeout(resolve, 1000));
-  }
-}
 
