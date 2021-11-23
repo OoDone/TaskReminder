@@ -1,1 +1,27 @@
-
+{
+    "name": "ReminderBot",
+    "version": "1.0.0",
+    "description": "Reminder Bot",
+    "author": "Github: OoDone",
+    "homepage": "",
+    "license": "",
+    "main": "bot.js",
+    "dependencies": {
+        "figlet": "latest",
+        "fs": "0.0.1-security",
+        "got": "^9.6.0",
+        "simple-git": "^1.126.0",
+        "ws": "latest"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "start": "npm node bot.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "bugs": {
+        "url": ""
+    }
+}
